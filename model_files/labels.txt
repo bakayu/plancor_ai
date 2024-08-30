@@ -1,0 +1,16 @@
+0 Red
+1 Lemon
+2 Orange
+3 Pink
+4 Lavender
+5 Blue
+6 Light blue
+7 Pastel green
+8 Green
+9 White
+10 Pastel yellow
+11 Peach
+12 Sea green
+13 Brown
+14 Golden
+15 Silver
