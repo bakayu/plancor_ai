@@ -1,0 +1,8 @@
+name: plancor 
+dependencies:
+  - python=3.11
+  - numpy
+  - tensorflow
+  - keras
+  - pillow
+  - pip

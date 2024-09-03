@@ -17,11 +17,12 @@ class_names = open("model_files/labels.txt", "r").readlines()
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-# image = Image.open("sample_data/blogimage1361284108interior-designs-for-master-bedroom.jpg").convert("RGB")
-# image = Image.open("sample_data/Drawing-Room-Interior.jpg").convert("RGB")
-# image = Image.open("sample_data/luxury-bedroom-interior-design-service.jpg").convert("RGB")
-image = Image.open("sample_data/Watermark-7-2.jpg").convert("RGB")
-# image = Image.open("sample_data/WhatsApp-Image-2020-10-19-at-22.01.25.jpeg").convert("RGB")
+image = Image.open("sample_data/image1.jpg").convert("RGB")
+# image = Image.open("sample_data/image2.jpg").convert("RGB")
+# image = Image.open("sample_data/image3.jpg").convert("RGB")
+# image = Image.open("sample_data/image4.jpg").convert("RGB")
+# image = Image.open("sample_data/image5.jpg").convert("RGB")
+
 # resizing the image to be at least 224x224 and then cropping from the center
 size = (224, 224)
 image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
@@ -47,8 +48,8 @@ print("Class:", class_name[2:], end="")
 print("Confidence Score:", confidence_score)
 
 # # print top 5
-# indices = np.argsort(-data)
+# indices = np.argsort(-prediction)
 # print(indices)
-# sorted_values = data[indices]
+# sorted_values = class_names[indices]
 # top5 = sorted_values[:5]
 # print(top5)
