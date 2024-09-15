@@ -1,0 +1,5 @@
+Class 1: Green
+Class 2: Lavender
+Class 3: Light blue
+Class 4: Blue
+Class 5:  Peach

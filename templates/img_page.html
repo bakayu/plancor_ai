@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='img_page.css') }}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="{{url_for('static', filename='logo2.png')}}"
+          alt="PlanCor Logo"
+        />
+        <span>Plancor</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('homePage')}}">Home</a></li>
+          <li><a href="farmer.html" class="active">Farmer's Portal</a></li>
+          <li><a href="buyer.html">Buyer's Portal</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="upload-container">
+      <h2>Upload and Preview Your Image</h2>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="upload-btn-wrapper">
+          <button class="upload-btn" type="button">Choose File</button>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            id="imageInput"
+            onchange="previewImage(event)"
+          />
+        </div>
+        <div class="image-label">Image Preview:</div>
+        <img id="imagePreview" class="image-preview" alt="Image Preview" />
+        <br />
+        <button
+          type="submit"
+          class="submit-btn"
+          value="Upload"
+          onclick="uploadFile()"
+        >
+          Submit
+        </button>
+        <div class="success-message" id="successMessage">
+          Image is uploaded successfully!
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <div class="footer-column">
+        <h3><a href="#">About us</a></h3>
+        <ul>
+          <li>Story</li>
+          <li>Mission</li>
+          <li>Journey</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3><a href="#">Team</a></h3>
+        <ul>
+          <li>Nimarpreet Singh</li>
+          <li>Parul Garg</li>
+          <li>Ayush Chauhan</li>
+          <li>Abhinavpreet Singh</li>
+          <li>Niharika Gupta</li>
+          <li>Divyanjali Tiwari</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3><a href="contact.html">Contact us</a></h3>
+        <ul>
+          <li>Email</li>
+          <li>Request call back</li>
+          <li>Phone</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3><a href="#">Follow Us</a></h3>
+        <ul>
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">X</a></li>
+        </ul>
+      </div>
+
+      <p>© 2024 Plancor. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function previewImage(event) {
+        const imageInput = event.target;
+        const imagePreview = document.getElementById("imagePreview");
+        const imageLabel = document.querySelector(".image-label");
+        const successMessage = document.getElementById("successMessage");
+
+        if (imageInput.files && imageInput.files[0]) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = "block";
+            imageLabel.style.display = "block";
+            successMessage.style.display = "none"; // Hide success message until form is submitted
+          };
+
+          reader.readAsDataURL(imageInput.files[0]); // Read file as data URL
+        } else {
+          imagePreview.style.display = "none";
+          imageLabel.style.display = "none";
+        }
+      }
+
+      function uploadFile() {
+        var formData = new FormData();
+        var fileInput = document.getElementById("imageInput");
+        formData.append("file", fileInput.files[0]);
+
+        $.ajax({
+          url: "/upload",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            if (response.success) {
+              $("#successMessage")
+                .html("Image is uploaded successfully!")
+                .show();
+            } else {
+              $("#successMessage")
+                .html("Error: " + response.error)
+                .show();
+            }
+          },
+        });
+      }
+
+      // Prevent the form from submitting traditionally
+      $("#uploadForm").on("submit", function (e) {
+        e.preventDefault();
+        uploadFile();
+      });
+    </script>
+  </body>
+</html>

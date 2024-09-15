@@ -41,11 +41,25 @@ prediction = model.predict(data)
 index = np.argmax(prediction)
 class_name = class_names[index]
 confidence_score = prediction[0][index]
+pred_sorted = np.argsort(prediction)
+top_5 = pred_sorted[0][-5:]
+top_5_r = top_5[::-1]
+# print("1", prediction, "2", pred_sorted)
+# print("index", index)
+# print("top 5", top_5)
+
+for i in range(1, 6):
+    print(f"Class {i}: {class_names[top_5_r[i-1]][2:]}")
+    # print(f"Confidence Score: {prediction[0][top_5_r[i-1]]}")
+
+# for i in pred_sorted[-5:]:
+#     print(i)
+#     print(class_names[i])
 
 # Print prediction and confidence score
-print("||===================================================================||")
-print("Class:", class_name[2:], end="")
-print("Confidence Score:", confidence_score)
+# print("||===================================================================||")
+# print("Class:", class_name[2:], end="")
+# print("Confidence Score:", confidence_score)
 
 # # print top 5
 # indices = np.argsort(-prediction)

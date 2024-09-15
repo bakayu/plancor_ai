@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Plancor- Buyer's Portal</title>
+    <link rel="icon" type="image/png" href="logo2.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='buyer.css')">
+ 
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo2.png" alt="PlanCor Logo">
+            <span>Plancor</span>
+        </div>
+
+        
+    </div>
+    <div class="search-bar">
+      <form action="/search" method="GET">
+        <input type="search" id="search" name="query" placeholder="Let's start looking....">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+        <nav>
+            <ul>
+          <li><a href="{{url_for('index.html')}}">Home</a></li>
+          <li><a href="{{url_for('product.html')}}">Products</a></li>
+          <li><a href="{{url_for('contact.html')}}">Contact us</a></li>
+                <li><a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <section class="main">
+            <h1>Plancor</h1>
+            <p><i>Where every detail matters!</i></p>
+            <a href="image.html" class="shop-now">Shop Now</a>
+        </section>
+
+        <section class="content">
+            <div class="content-box">
+                    <div class="list-container">
+                        <ul>
+                            <li>Creating Eco-Friendly Decor & Gifts</li>
+                            <li>Minimizing Agricultural Waste through Sustainable Use of Byproducts</li>
+                            <li>Reducing Waste and Minimizing Carbon Footprints</li>
+                        </ul>
+                    </div>
+                <div class="image">
+                    <img src="1.png" alt="CO2">
+                </div>
+        </section>
+
+        <div class="image-box">
+            <div class="flower">
+              <img src="flower.jpg" alt="Image 1">
+            </div>
+            <div class="flower2">
+              <img src="j (2).png" alt="Image 2">
+            </div>
+        </div>
+          
+
+        <section class="products">
+            <h2>Our Products</h2>
+            <div class="product-slider">
+                <button class="prev">‹</button>
+                <div class="product-slider-wrapper">
+                    <div class="product-slider-inner">
+                        <div class="product-item">
+                            <img src="a.jpg" alt="Product 1">
+                            <h3>Shola Flower Gift Hamper</h3>
+                            <p>₹399</p>
+                            <button class="add-to-cart" data-product-id="1">Add to Cart</button>
+                        </div>
+                        <div class="product-item">
+                            <img src="b.jpg" alt="Product 2">
+                            <h3>Rose</h3>
+                            <p>₹69</p>
+                            <button class="add-to-cart" data-product-id="2">Add to Cart</button>
+                        </div>
+    
+                        <div class="product-item">
+                            <img src="c.jpg" alt="Product 3">
+                            <h3>Mini dried flower bouquet</h3>
+                            <p>₹599</p>
+                            <button class="add-to-cart" data-product-id="3">Add to Cart</button>
+        
+                        </div>
+                        <div class="product-item">
+                            <img src="d.jpg" alt="Product 4">
+                            <h3>Wall hanging (Pack of 2)</h3>
+                            <p>₹189</p>
+                            <button class="add-to-cart" data-product-id="4">Add to Cart</button>
+                          
+                        </div>
+                        <div class="product-item">
+                            <img src="f.jpg" alt="Product 5">
+                            <h3>Flower pot sticks </h3>
+                            <p>₹229</p>
+                            <button class="add-to-cart" data-product-id="5">Add to Cart</button>
+                         
+                        </div>
+                        <div class="product-item">
+                            <img src="g.jpg" alt="Product 6">
+                            <h3>Sea Shell flower </h3>
+                            <p>₹89</p>
+                            <button class="add-to-cart" data-product-id="6">Add to Cart</button>
+                          
+                        </div>
+                        <div class="product-item">
+                            <img src="h.png" alt="Product 7">
+                            <h3>Dried lotus flower sticks </h3>
+                            <p>₹229</p>
+                            <button class="add-to-cart" data-product-id="7">Add to Cart</button>
+                           
+                        </div>
+                        <div class="product-item">
+                            <img src="i.png" alt="Product 8">
+                            <h3>Millet Dried Stems </h3>
+                            <p>₹229</p>
+                            <button class="add-to-cart" data-product-id="8">Add to Cart</button>
+                         
+                        </div>
+                        <div class="product-item">
+                            <img src="j.png" alt="Product 9">
+                            <h3>Cotton flower stick - White</h3>
+                            <p>₹229</p>
+                            <button class="add-to-cart" data-product-id="9">Add to Cart</button>
+                         
+                        </div>
+                    </div>
+                </div>
+                <button class="next">›</button>
+            </div>
+        </section>
+    
+
+<!--      <section class="material">
+            <h2>Our Materials </h2>
+            <div class="material-slider">
+                <button class="prev">‹</button>
+                <div class="material-slider-wrapper">
+                    <div class="material-slider-inner">
+
+                        <div class="material-item">
+                            <img src="#" alt= "material 1">
+                            <h3>Rice</h3>
+                        </div>
+
+                        <div class="material-item">
+                            <img src="#" alt = "material 2">
+                            <h3>Millets </h3>
+                        </div>
+    
+                        <div class="material-item">
+                            <img src="#" alt="material 3">
+                            <h3>Mini dried flower bouquet</h3>
+        
+                        </div>
+                        <div class="material-item">
+                            <img src="#" alt="material 4">
+                            <h3>Wall hanging (Pack of 2)</h3>
+            
+                          
+                        </div>
+                        <div class="material-item">
+                            <img src="#" alt="material 5">
+                            <h3>Flower pot sticks </h3>
+            
+                         
+                        </div>
+                        <div class="material-item">
+                            <img src="#" alt="material 6">
+                            <h3>Sea Shell flower </h3>
+                          
+                        </div>
+                    
+                        <div class="material-item">
+                            <img src="#" alt="material 7">
+                            <h3>Dried lotus flower sticks </h3>
+            
+                           
+                        </div>
+                        <div class="material-item">
+                            <img src="#" alt="material 8">
+                            <h3>Millet Dried Stems </h3>
+            
+                         
+                        </div>
+                        <div class="material-item">
+                            <img src="#" alt="material 9">
+                            <h3>Cotton flower stick - White</h3>
+                         
+                        </div>
+                    </div>
+                </div>
+                <button class="next">›</button>
+            </div>
+        </section>
+--> 
+        <footer>
+            <div class="footer-column">
+                <h3><a href="#">About us</a></h3>
+                <ul>
+                    <li>Story</li>
+                    <li>Mission</li>
+                    <li>Journey</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><a href="#">Team</a></h3>
+                <ul>
+                    <li>Nimarpreet Singh</li>
+                    <li>Parul Garg</li>
+                    <li>Ayush Chauhan</li>
+                    <li>Abhinavpreet Singh</li>
+                    <li>Niharika Gupta</li>
+                    <li>Divyanjali Tiwari</li> 
+                </ul>
+            </div>
+        
+            <div class="footer-column">
+                <h3><a href="contact.html">Contact us</a></h3>
+                <ul>
+                    <li>Email</li>
+                    <li>Request call back</li>
+                    <li>Phone</li>
+                </ul>
+            </div>
+        
+            <div class="footer-column">
+                <h3><a href="#">Follow Us</a></h3>
+                <ul>
+                  <li><a href="#" target="_blank">Facebook</a></li>
+                  <li><a href="#" target="_blank">Instagram</a></li>
+                  <li><a href="#" target="_blank">X</a></li>
+                </ul>
+              </div>
+        
+            <p>&copy; 2024 Plancor. All rights reserved.</p>
+        
+        </footer>
+
+    <div class="cart-sidebar">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="close-cart">Close</button>
+    </div>
+
+    <script src="buyer.js"></script>
+
+</body>
+</html>
