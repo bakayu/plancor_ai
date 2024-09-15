@@ -5,4 +5,7 @@ dependencies:
   - tensorflow
   - keras
   - pillow
+  - PIL
   - pip
+  - werkzeug
+  - flask
